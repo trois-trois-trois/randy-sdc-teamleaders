@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const config = require('../config');
 
-mongoose.connect(config.mongoURI, { useNewURLParser: true });
+mongoose.connect('mongodb://localhost/ESPN2/photos');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
