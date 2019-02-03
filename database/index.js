@@ -1,7 +1,17 @@
 const mongoose = require('mongoose');
 const config = require('../config');
 
-mongoose.connect('mongodb://localhost/ESPN2/stats');
+const option = {
+  socketTimeoutMS: 100000000,
+  keepAlive: true,
+  reconnectTries: 100000000
+};
+
+mongoose.connect('mongodb://localhost/ESPN2/stats', option).then(function() {
+  console.log('MongoDB has connected')
+}, function(err) {
+  console.log('MongoDB Failed To Connect')
+});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -11,21 +21,21 @@ db.once('open', () => {
 
 const statsSchema = {
   Offense: {
-    Player: { type: String, unique: true },
+    Player: String,
     Passing: Number,
     Rushing: Number,
     Receiving: Number,
     Touchdowns: Number,
   },
   Defense: {
-    Player: { type: String, unique: true },
+    Player: String,
     Tackles: Number,
     Sacks: Number,
     Interceptions: Number,
     FumblesForced: Number,
   },
   SpecialTeams: {
-    Player: { type: String, unique: true },
+    Player: String,
     FieldGoal: Number,
     ExtraPoint: Number,
   },
