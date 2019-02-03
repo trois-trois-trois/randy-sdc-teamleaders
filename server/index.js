@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const mysql = require('mysql'); //mysql database //
 const config = require('../config');
-const db = require('../database/index.js');
-const dbs = require('../database/index2.js');
+const db = require('../database/index.js'); //old database //
+const dbs = require('../database/index2.js'); //old database//
 
 const app = express();
 
@@ -13,17 +14,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.get('/stats', (req, res) => {
-  db.Stats.find({}).exec((err, data) => {
-    res.send(data);
-  });
-});
+app.get('/stats', (req, res) => {      //old database//   
+  db.Stats.find({}).exec((err, data) => {    //old database//
+    res.send(data);    //old database//
+  });    //old database//
+});    //old database//
 
-app.get('/photos', (req, res) => {
-  dbs.Photos.find({}).exec((err, data) => {
-    res.send(data);
-  });
-});
+app.get('/photos', (req, res) => {      //old database//
+  dbs.Photos.find({}).exec((err, data) => {    //old database//
+    res.send(data);    //old database//
+  });    //old database//
+});    //old database//
 
 const port = process.env.PORT || 3000;
 
