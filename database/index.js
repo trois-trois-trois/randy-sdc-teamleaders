@@ -53,3 +53,4 @@ const funcs = {
   db, Stats, save,
 };
 module.exports = funcs;
+
