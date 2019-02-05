@@ -44,11 +44,15 @@ app.use(express.static(`${__dirname}/../client/dist`));
 
 app.get('/stats', (req, res) => {
   Stats.reset()
-  .fetch()
-  .then((data) => {
-    res.status(200).send(data.models);
-  })
-})
+    .orderBy('id', 'DESC')
+    .query((qb) => {
+      qb.limit(20);
+    })
+    .fetch()
+    .then((data) => {
+      res.status(200).send(data.models);
+    });
+});
 
 const port = process.env.PORT || 3000;
 

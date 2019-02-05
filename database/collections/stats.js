@@ -1,7 +1,7 @@
 const db = require('../config.js');
-const Stats = require('../models/stats.js');
+const Stat = require('../models/stats.js');
 
-const Stat = new db.Collection();
+const Stats = new db.Collection();
 
 Stats.model = Stat;
 

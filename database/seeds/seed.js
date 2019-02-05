@@ -7,6 +7,10 @@ const getRandomPosition = () => {
     return  `${position[getRandomInt(position.length)]}`;
 }
 
+const genImage = () => {
+    return `${faker.image.people(80, 80)}?random=${Date.now()}`
+}
+
 exports.seed = async function getData(knex, Promise) {
     return knex('stats').del()
     .then(function() {
@@ -16,7 +20,7 @@ exports.seed = async function getData(knex, Promise) {
                     id: i,
                     position: getRandomPosition(),
                     player: faker.name.findName(),
-                    image: faker.image.imageUrl(400, 400, "people"),
+                    image: genImage(),
                     passing: faker.random.number(100),
                     rushing: faker.random.number(100),
                     receiving: faker.random.number(100),
@@ -40,7 +44,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -64,7 +68,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -88,7 +92,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -112,7 +116,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -136,7 +140,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -160,7 +164,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -184,7 +188,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -208,7 +212,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
@@ -232,7 +236,7 @@ exports.seed = async function getData(knex, Promise) {
                 id: i,
                 position: getRandomPosition(),
                 player: faker.name.findName(),
-                image: faker.image.imageUrl(400, 400, "people"),
+                image: genImage(),
                 passing: faker.random.number(100),
                 rushing: faker.random.number(100),
                 receiving: faker.random.number(100),
