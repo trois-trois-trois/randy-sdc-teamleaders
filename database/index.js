@@ -1,17 +1,9 @@
 const mongoose = require('mongoose');
+const Pool = require('pg').Pool
 const config = require('../config');
 
-const option = {
-  socketTimeoutMS: 100000000,
-  keepAlive: true,
-  reconnectTries: 100000000
-};
 
-mongoose.connect('mongodb://localhost/ESPN2/stats', option).then(function() {
-  console.log('MongoDB has connected')
-}, function(err) {
-  console.log('MongoDB Failed To Connect')
-});
+mongoose.connect('mongodb://localhost/ESPN2/stats')
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

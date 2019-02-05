@@ -34,22 +34,6 @@ class App extends Component {
           sample: data,
         });
       });
-
-    axios.get('/photos',
-      {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((res) => {
-        const data = res.data;
-        this.setState({
-          photos: data,
-        });
-      });
   }
 
   changeSide(e) {

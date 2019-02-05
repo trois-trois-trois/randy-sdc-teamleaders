@@ -11,22 +11,29 @@ class Teamleaders extends Component {
 
   component() {
     const {
-      sample, photos, changeSide, side,
+      sample, changeSide, side,
     } = this.props;
-    // const { side } = this.state;
-    const Passing = sample.map(elem => elem.Offense.Passing);
+    const getRandomInt = num => Math.floor(Math.random() * Math.floor(num));
+    const Player = sample.map(elem => elem.player);
+    const getRandomPlayer = () => {
+      return  `${Player[getRandomInt(Player.length)]}`;
+    }
+    const Passing = sample.map(elem => elem.passing);
     const passingYards = Math.max(...Passing);
-    const Rushing = sample.map(elem => elem.Offense.Rushing);
+    const Rushing = sample.map(elem => elem.rushing);
     const rushingYards = Math.max(...Rushing);
-    const Receiving = sample.map(elem => elem.Offense.Receiving);
+    const Receiving = sample.map(elem => elem.receiving);
     const receivingYards = Math.max(...Receiving);
-    const Tackles = sample.map(elem => elem.Defense.Tackles);
+    const Tackles = sample.map(elem => elem.tackles);
     const totalTackles = Math.max(...Tackles);
-    const Sacks = sample.map(elem => elem.Defense.Sacks);
+    const Sacks = sample.map(elem => elem.sacks);
     const totalSacks = Math.max(...Sacks);
-    const Interceptions = sample.map(elem => elem.Defense.Interceptions);
+    const Interceptions = sample.map(elem => elem.interceptions);
     const totalInterceptions = Math.max(...Interceptions);
-    const Photos = photos.map(elem => [elem.picture.medium]);
+    const Photos = sample.map(elem => [elem.image]);
+    const getRandomPhoto = () => {
+      return  `${Photos[getRandomInt(Photos.length)]}`;
+    }
 
     if (side === 'Offense') {
       return (
@@ -46,12 +53,12 @@ class Teamleaders extends Component {
             <div className="border-bottom border-secondary">
               <div className="text-left">
                 <a href="http://www.espn.com/nfl/player/_/id/3046779" target="_blank">
-                  <img className="rounded-circle float-left" src={Photos[3]} alt="player" />
+                  <img className="rounded-circle float-left" src={getRandomPhoto()} alt="player" />
                 </a>
 
               </div>
               <a href="http://www.espn.com/nfl/player/_/id/3046779" target="_blank">
-                <p id="playerName" className="text-secondary">{sample.map(elem => (elem.Offense.Passing === passingYards ? elem.Offense.Player : null))}</p>
+                <p id="playerName" className="text-secondary">{getRandomPlayer()}</p>
               </a>
               <p id="playerStats" className="h2 font-weight-bold text-dark">{passingYards}</p>
               <br />
@@ -63,11 +70,11 @@ class Teamleaders extends Component {
             <div className="border-bottom border-secondary">
               <div className="text-left">
                 <a href="http://www.espn.com/nfl/player/_/id/2977644" target="_blank">
-                  <img className="rounded-circle float-left" src={Photos[1]} alt="player" />
+                  <img className="rounded-circle float-left" src={getRandomPhoto()} alt="player" />
                 </a>
               </div>
               <a href="http://www.espn.com/nfl/player/_/id/2977644" target="_blank">
-                <p id="playerName" className="text-secondary">{sample.map(elem => (elem.Offense.Rushing === rushingYards ? elem.Offense.Player : null))}</p>
+                <p id="playerName" className="text-secondary">{getRandomPlayer()}</p>
               </a>
               <p id="playerStats" className="h2 font-weight-bold text-dark">{rushingYards}</p>
               <br />
@@ -79,11 +86,11 @@ class Teamleaders extends Component {
             <div className="border-bottom border-secondary">
               <div className="text-left">
                 <a href="http://www.espn.com/nfl/player/_/id/15880" target="_blank">
-                  <img className="rounded-circle float-left" src={Photos[2]} alt="player" />
+                  <img className="rounded-circle float-left" src={getRandomPhoto()} alt="player" />
                 </a>
               </div>
               <a href="http://www.espn.com/nfl/player/_/id/15880" target="_blank">
-                <p id="playerName" className="text-secondary">{sample.map(elem => (elem.Offense.Receiving === receivingYards ? elem.Offense.Player : null))}</p>
+                <p id="playerName" className="text-secondary">{getRandomPlayer()}</p>
               </a>
               <p id="playerStats" className="h2 font-weight-bold text-dark">{receivingYards}</p>
               <br />
@@ -113,11 +120,11 @@ class Teamleaders extends Component {
             <div className="border-bottom border-secondary">
               <div className="text-left">
                 <a href="http://www.espn.com/nfl/player/_/id/2978304" target="_blank">
-                  <img className="rounded-circle float-left" src={Photos[4]} alt="player" />
+                  <img className="rounded-circle float-left" src={getRandomPhoto()} alt="player" />
                 </a>
               </div>
               <a href="http://www.espn.com/nfl/player/_/id/2978304" target="_blank">
-                <p id="playerName" className="text-secondary">{sample.map(elem => (elem.Defense.Tackles === totalTackles ? elem.Defense.Player : null))}</p>
+                <p id="playerName" className="text-secondary">{getRandomPlayer()}</p>
               </a>
               <p id="playerStats" className="h2 font-weight-bold text-dark">{totalTackles}</p>
               <br />
@@ -129,11 +136,11 @@ class Teamleaders extends Component {
             <div className="border-bottom border-secondary">
               <div className="text-left">
                 <a href="http://www.espn.com/nfl/player/_/id/16716" target="_blank">
-                  <img className="rounded-circle float-left" src={Photos[5]} alt="player" />
+                  <img className="rounded-circle float-left" src={getRandomPhoto()} alt="player" />
                 </a>
               </div>
               <a href="http://www.espn.com/nfl/player/_/id/16716" target="_blank">
-                <p id="playerName" className="text-secondary">{sample.map(elem => (elem.Defense.Sacks === totalSacks ? elem.Defense.Player : null))}</p>
+                <p id="playerName" className="text-secondary">{getRandomPlayer()}</p>
               </a>
               <p id="playerStats" className="h2 font-weight-bold text-dark">{totalSacks}</p>
               <br />
@@ -145,11 +152,11 @@ class Teamleaders extends Component {
             <div className="border-bottom border-secondary">
               <div className="text-left">
                 <a href="http://www.espn.com/nfl/player/_/id/2578378" target="_blank">
-                  <img className="rounded-circle float-left" src={Photos[6]} alt="player" />
+                  <img className="rounded-circle float-left" src={getRandomPhoto()} alt="player" />
                 </a>
               </div>
               <a href="http://www.espn.com/nfl/player/_/id/2578378" target="_blank">
-                <p id="playerName" className="text-secondary">{sample.map(elem => (elem.Defense.Interceptions === totalInterceptions ? elem.Defense.Player : null))}</p>
+                <p id="playerName" className="text-secondary">{getRandomPlayer()}</p>
               </a>
               <p id="playerStats" className="h2 font-weight-bold text-dark">{totalInterceptions}</p>
               <br />
