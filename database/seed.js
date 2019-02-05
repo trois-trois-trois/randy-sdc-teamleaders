@@ -24,4 +24,4 @@ async function insertSampleBlogs(inner, outer) {
     }
 }
   
-insertSampleBlogs(1000, 1000);
+insertSampleBlogs(1000, 10000);
