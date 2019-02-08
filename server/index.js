@@ -1,57 +1,30 @@
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
-// const config = require('../config');
-// const db = require('../database/index.js'); //old database //
-// const dbs = require('../database/index2.js'); //old database//
-
-// const app = express();
-
-// app.use(cors());
-// app.use(express.static(`${__dirname}/../client/dist`));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-
-
-// app.get('/stats', (req, res) => {      //old database//   
-//   db.Stats.find({}).limit(25).exec((err, data) => {    //old database//
-//     res.send(data);    //old database//
-//   });    //old database//
-// });    //old database//
-
-// app.get('/photos', (req, res) => {      //old database//
-//   dbs.Photos.find({}).exec((err, data) => {    //old database//
-//     res.send(data);    //old database//
-//   });    //old database//
-// });    //old database//
-
-// const port = process.env.PORT || 3000;
-
-// app.listen(port, () => {
-//   console.log(`listening on port ${port}`);
-// });
-
 const express = require('express');
-const cors = require('cors');
-var Stats = require('../database/collections/stats.js');
+const bodyParser = require('body-parser');
+// const cors = require('cors');
+const cassandra = require('cassandra-driver');
 
 const app = express();
+const client = new cassandra.Client({ contactPoints: ['127.0.0.1'], localDataCenter: 'datacenter1', keyspace: 'espn' });
+client.connect(function(err, result){
+  console.log('index: cassandra connected');
+});
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+const getAllData = ('SELECT * FROM espn.stats');
+
+// app.use(cors());
 app.use(express.static(`${__dirname}/../client/dist`));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/stats', (req, res) => {
-  Stats.reset()
-    .orderBy('id', 'DESC')
-    .query((qb) => {
-      qb.limit(20);
-    })
-    .fetch()
-    .then((data) => {
-      res.status(200).send(data.models);
-    });
+  client.execute(getAllData, [], (err, result) => {
+    console.log(result, 'result')
+    if(err) {
+      res.sendStatus(404);
+    } else {
+      console.log(result);
+    }
+  });
 });
 
 const port = process.env.PORT || 3000;

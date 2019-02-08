@@ -30,6 +30,7 @@ class App extends Component {
       })
       .then((res) => {
         const data = res.data;
+        console.log(data, 'DATA')
         this.setState({
           sample: data,
         });
