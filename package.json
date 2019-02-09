@@ -8,7 +8,7 @@
     "server": "nodemon server/index.js rs",
     "start": "node server/index.js rs",
     "seed": "node database/seeds/seed.js",
-    "db:setup": "node database/models/seed.sql",
+    "db:setup": "node database/models/stats.sql",
     "db:secondary": "node database/seed2.js",
     "test": "jest",
     "test:watch": "jest --watch",
