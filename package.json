@@ -7,7 +7,9 @@
     "react": "webpack -d --watch",
     "server": "nodemon server/index.js rs",
     "start": "node server/index.js rs",
-    "seed": "node database/seeds/seed.js",
+    "seed": "node database/seeds/seed2.js",
+    "seed2": "node database/seeds/seed.js",
+    "seed3": "node database/seeds/seed3.js",
     "db:setup": "node database/models/stats.sql",
     "db:secondary": "node database/seed2.js",
     "test": "jest",
@@ -50,15 +52,16 @@
     "async": "^2.6.1",
     "cassandra-driver": "^4.0.0",
     "cors": "^2.8.5",
+    "csv-generate": "^3.2.0",
     "faker": "^4.1.0",
-    "knex": "^0.16.3",
-    "mysql": "^2.16.0",
+    "moment-timezone": "^0.5.23",
     "node-fetch": "^2.3.0",
-    "pg": "^7.8.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "^2.1.1",
+    "stream-transform": "^1.0.8",
+    "uuid": "^3.3.2"
   }
 }

@@ -8,7 +8,7 @@ CREATE KEYSPACE espn WITH REPLICATION = { class: SimpleStrategy, replication_fac
 USE espn;
 
 CREATE TABLE stats (
-  id  INT PRIMARY KEY,
+  id UUID PRIMARY KEY,
   position TEXT,
   player TEXT,
   fieldGoal TEXT,
