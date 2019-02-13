@@ -1,7 +1,7 @@
 # CRUD QUERIES
 
-## CREATE
-#### ROUTE: /stats
+### CREATE
+###### ROUTE: /stats
 
 
     app.post('/stats', (req, res) => {
@@ -28,8 +28,8 @@
 });
 
 
-# READ
-#### ROUTE: /stats
+### READ
+###### ROUTE: /stats
 
 
     app.get('/stats', (req, res) => {
@@ -44,8 +44,8 @@
         });
     });
 
-# UPDATE
-#### ROUTE: /stats
+### UPDATE
+###### ROUTE: /stats
 
 
     app.put('/stats', (req, res) => {
@@ -59,8 +59,8 @@
     .then(() => res.status(200).send('DB has been updated!'))
     })
 
-# DELETE
-#### ROUTE: /stats
+### DELETE
+###### ROUTE: /stats
 
 
     app.delete('/stats', (req, res) => {
