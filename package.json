@@ -9,7 +9,7 @@
     "start": "node server/index.js rs",
     "seed": "node database/seeds/seed2.js",
     "seed2": "node database/seeds/seed.js",
-    "seed3": "node database/seeds/seed3.js",
+    "seed3": "cqlsh < database/seeds/seed3.js",
     "db:setup": "node database/models/stats.sql",
     "db:secondary": "node database/seed2.js",
     "test": "jest",
