@@ -42,7 +42,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(`${__dirname}/../client/dist`));
 
+app.post('/stats', (req, res) => {
+  //CREATE
+})
+
 app.get('/stats', (req, res) => {
+  //READ
   Stats.reset()
     .orderBy('id', 'DESC')
     .query((qb) => {
@@ -53,6 +58,15 @@ app.get('/stats', (req, res) => {
       res.status(200).send(data.models);
     });
 });
+
+
+app.post('/stats', (req, res) => {
+  //UPDATE
+})
+
+app.post('/stats', (req, res) => {
+  //DELETE
+})
 
 const port = process.env.PORT || 3000;
 
