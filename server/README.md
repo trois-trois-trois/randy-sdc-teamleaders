@@ -1,20 +1,13 @@
-const express = require('express');
-const fetch = require("node-fetch");
-const cors = require('cors');
-const db = require('../database/config');
-const Stats = require('../database/collections/stats.js');
-const Stat = require('../database/models/stats');
+<h1>CRUD QUERIES</h1>
+<br>
+<br>
+<br>
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(`${__dirname}/../client/dist`));
-
-
-app.post('/stats', (req, res) => {
-  //CREATE
+<h2>CREATE</h2> <br />
+<h4>ROUTE: /stats</h4> <br />
+<br />
+<p>
+```app.post('/stats', (req, res) => {
   const { id, position, player, image, passing, rushing, receiving, touchdowns, tackles, sacks, interceptions, fumblesForced, fieldGoal, extraPoint } = req.body 
   let body = {
     id: 12,
@@ -35,10 +28,16 @@ app.post('/stats', (req, res) => {
 
   db.knex('stats').insert(body)
   .then(() => res.status(200).send('Data successfully saved to DB'))
-});
+});```
+</p>
+<br>
+<br>
 
-app.get('/stats', (req, res) => {
-  //READ
+<h1>READ</h1> <br>
+<h4>ROUTE: /stats</h4> <br>
+<br>
+<p>
+```app.get('/stats', (req, res) => {
   Stats.reset()
     .orderBy('id', 'DESC')
     .query((qb) => {
@@ -48,10 +47,16 @@ app.get('/stats', (req, res) => {
     .then((data) => {
       res.status(200).send(data.models);
     });
-});
+});```
+</p>
+<br>
+<br>
 
-app.put('/stats', (req, res) => {
-  //UPDATE
+<h1>UPDATE</h1> <br>
+<h4>ROUTE: /stats</h4> <br>
+<br>
+<p>
+```app.put('/stats', (req, res) => {
   db.knex('stats')
   .where({
     player: 'Randy Thomas'
@@ -60,20 +65,28 @@ app.put('/stats', (req, res) => {
     position: 'Special Teams'
   })
   .then(() => res.status(200).send('DB has been updated!'))
-})
+})```
+</p>
+<br>
+<br>
 
-app.delete('/stats', (req, res) => {
-  //DELETE
+<h1>DELETE</h1> <br>
+<h4>ROUTE: /stats</h4> <br>
+<br>
+<p>
+```app.delete('/stats', (req, res) => {
   db.knex('stats')
   .where({
     player: 'Randy Thomas'
   })
   .del()
   .then(() => res.status(200).send('Data deleted from DB!'))
-})
+})```
+</p>
+<br>
+<br>
 
-const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+
+
+<i>see more: http://www.github.com/rlthomascc</i>

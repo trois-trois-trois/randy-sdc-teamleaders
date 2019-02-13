@@ -27,7 +27,6 @@ const knex = require('knex')({
         t.string('fumblesForced');
         t.string('fieldGoal');
         t.string('extraPoint');
-        t.timestamp('timestamp').defaultTo(knex.fn.now());
       })
         .then(t => console.log('Created Table:', t))
         .catch(err => console.log('Error creating Table', err));
