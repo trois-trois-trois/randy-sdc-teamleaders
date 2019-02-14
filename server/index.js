@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(`${__dirname}/../client/dist`));
 
 
+
 app.post('/stats', (req, res) => {
   //CREATE
   const { id, position, player, image, passing, rushing, receiving, touchdowns, tackles, sacks, interceptions, fumblesForced, fieldGoal, extraPoint } = req.body 
@@ -28,9 +29,9 @@ app.post('/stats', (req, res) => {
     tackles: '5',
     sacks: '0',
     interceptions: '0',
-    fumblesforced: '0',
-    fieldgoal: '0',
-    extrapoint: '2',
+    fumblesForced: '0',
+    fieldGoal: '0',
+    extraPoint: '2',
   };
 
   db.knex('stats').insert(body)

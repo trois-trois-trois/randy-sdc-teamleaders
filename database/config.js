@@ -10,9 +10,9 @@ const knex = require('knex')({
   
   const db = require('bookshelf')(knex);
   
-  db.knex.schema.hasTable('feeds').then((exists) => {
+  db.knex.schema.hasTable('stats').then((exists) => {
     if (!exists) {
-      return db.knex.schema.createTable('feeds', (t) => {
+      return db.knex.schema.createTable('stats', (t) => {
         t.increments('id').primary();
         t.string('position');
         t.string('player')
