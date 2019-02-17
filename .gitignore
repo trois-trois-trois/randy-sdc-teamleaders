@@ -1,3 +1,5 @@
 ###NPM###
 node_modules
-config.js
+sensitive.js
+TeamLeadersPostgreSQL2.pem
+knexfile.js
