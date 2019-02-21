@@ -8,6 +8,7 @@
     "server": "nodemon server/index.js",
     "start": "node server/index.js rs",
     "seed": "knex seed:run",
+    "config": "node database/config.js",
     "db:setup": "node database/seed.js",
     "db:secondary": "node database/seed2.js",
     "test": "jest",
