@@ -12,8 +12,10 @@ const genImage = () => {
 }
 
 exports.seed = async function getData(knex, Promise) {
+    console.log('AM I EVEN HERE????????')
     return knex('stats').del()
     .then(function() {
+        console.log('I DELETED THE STATS DATA')
             const arr = [];
             for (let i = 0; i < 1000000; i++) {
                 const obj = {
