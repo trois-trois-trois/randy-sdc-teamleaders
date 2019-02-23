@@ -2,7 +2,6 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable import/extensions */
-const newRelic = require('newrelic');
 import React, { Component } from 'react';
 import $ from 'jquery';
 import axios from 'axios';
