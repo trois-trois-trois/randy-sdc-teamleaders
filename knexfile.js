@@ -2,7 +2,7 @@ module.exports = {
     development: {
         client: 'pg',
         connection: {
-            host: '12.0.0.1',
+            host: '127.0.0.1',
             user: 'me',
             password: 'password',
             database: 'espn',
@@ -14,7 +14,7 @@ module.exports = {
     production: {
         client: 'pg',
         connection: {
-            host: '12.0.0.1',
+            host: '127.0.0.1',
             user: 'me',
             password: 'password',
             database: 'espn',
