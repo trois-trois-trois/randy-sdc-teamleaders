@@ -1,4 +1,5 @@
 const faker = require('faker');
+const config = require('../../knexfile')
 
 const getRandomInt = num => Math.floor(Math.random() * Math.floor(num));
 
@@ -11,7 +12,7 @@ const genImage = () => {
     return `${faker.image.people(80, 80)}?random=${Date.now()}`
 }
 
-exports.seed = async function getData(knex, Promise) {
+exports.seed = async function getData(knex) {
     return knex('stats').del()
     .then(function() {
             const arr = [];
