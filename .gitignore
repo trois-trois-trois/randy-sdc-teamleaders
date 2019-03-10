@@ -3,5 +3,8 @@ node_modules
 sensitive.js
 TeamLeadersPostgreSQL2.pem
 knexfile.js
-loaderio-fd631e6bd3105156b1fd5d75c3b91efd.txt
+loaderio-6d5c4f8b66632ab7ee6e62603a773e65.txt
 newrelic.js
+coverage
+PostgreSQL.pem
+teamLeadersDOCKER.pem

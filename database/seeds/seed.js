@@ -52,6 +52,8 @@ const genData = (end) => {
   let startTime = new Date().getTime();
 
   exports.seed = knex => knex.batchInsert('stats', set, 1000)
+  .then(() => knex.batchInsert('stats', set, 10))
+  .then(() => console.log('initial set'))
   .then(() => knex.batchInsert('stats', set, 1000))
   .then(() => knex.batchInsert('stats', set, 1000))
   .then(() => knex.batchInsert('stats', set, 1000))
